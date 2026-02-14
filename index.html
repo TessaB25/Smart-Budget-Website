@@ -1,22 +1,73 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-88">
-    <title>Smart-Budget-Website</title>
-     <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <h1>Do you struggle with bugeting?  Are you tired of the same old boring budgeting app?  Don't worry we've got your back and hopefully your attention!</h1>
-    <p>This is a budget website that includes a retirement calculator to help you create and succeed monthly budgets and help you achieve your retirement goals.</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Budget</title>
+
+  <style>
+    /* Remove margins */
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Video background */
+    #bg-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Overlay content */
+    .content {
+      position: relative;
+      z-index: 1;
+      height: 100vh;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      color: white;
+      text-align: center;
+
+      background: rgba(0, 0, 0, 0.4);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Background Video -->
+  <video id="bg-video" autoplay muted loop>
+    <source src="cityvideo.mp4" type="video/mp4">
+  </video>
+
+  <!-- Audio Narration -->
+  <audio id="narration" autoplay>
+    <source src="welcome.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Page Content -->
+  <div class="content">
+    <h1>Welcome to Smart Budget!</h1>
+    <p>Let's journey together.</p>
+
+    <button onclick="playMedia()">▶ Start Experience</button>
+  </div>
+
+  <script>
+    function playMedia() {
+      document.getElementById("bg-video").play();
+      document.getElementById("narration").play();
+    }
+  </script>
+
+</body>
 </html>
-
-<audio controls autoplay>
-  <source src="welcome.mp3" type="audio/mpeg">
-  Your browser does not support audio.
-</audio>
-
-<video controls width="400">
-  <source src="cityvideo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
