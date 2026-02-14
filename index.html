@@ -42,6 +42,24 @@
   </style>
 </head>
 
+  <script>
+  let captionsOn = true;
+
+  function toggleCaptions() {
+    const video = document.getElementById("bg-video");
+    const track = video.textTracks[0];
+
+    if (captionsOn) {
+      track.mode = "hidden";
+      captionsOn = false;
+    } else {
+      track.mode = "showing";
+      captionsOn = true;
+    }
+  }
+</script>
+
+
 <body>
 
   <!-- Background Video -->
