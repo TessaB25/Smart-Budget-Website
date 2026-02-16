@@ -30,7 +30,15 @@ h1 {
   cursor: pointer;
 
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+
+  video::cue {
+  font-size: 13px; /* small text */
+  color: white;
+  background: rgba(0,0,0,0.7);
+  padding: 3px 5px;
+  border-radius: 4px;
 }
+
 
 #cc-btn:hover {
   background-color: darkorange;
