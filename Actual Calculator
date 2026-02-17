@@ -1,0 +1,7 @@
+<!-- Budget HTML Structure -->
+<div class="calculator-container">
+    <input type="number" id="income" placeholder="Total Income">
+    <input type="number" id="rent" placeholder="Rent/Mortgage">
+    <button onclick="updateChart()">Calculate</button>
+    <canvas id="budgetChart"></canvas>
+</div>
