@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Budget Calculator</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Chart.js for graph -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    .calculator-container {
+      max-width: 400px;
+      margin: 80px auto;
+      padding: 20px;
+
+      background: rgba(255, 165, 0, 0.9);
+
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: none;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+
+      background: white;
+      color: orange;
+
+      border: none;
+      border-radius: 6px;
+
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ffe0b2;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 style="text-align:center;">💰 Smart Budget Calculator</h1>
+
+  <div class="calculator-container">
+
+    <input type="number" id="income" placeholder="Total Income">
+
+    <input type="number" id="rent" placeholder="Rent / Mortgage">
+
+    <input type="number" id="food" placeholder="Food">
+
+    <input type="number" id="transport" placeholder="Transportation">
+
+    <button onclick="updateChart()">Calculate</button>
+
+    <canvas id="budgetChart"></canvas>
+
+  </div>
+
+  <script>
+    let chart;
+
+    function updateChart() {
+      const income = Number(document.getElementById("income").value);
+      const rent = Number(document.getElementById("rent").value);
+      const food = Number(document.getElementById("food").value);
+      const transport = Number(document.getElementById("transport").value);
+
+      const expenses = rent + food + transport;
+      const savings = income - expenses;
+
+      const data = {
+        labels: ["Rent", "Food", "Transport", "Savings"],
+        datasets: [{
+          data: [rent, food, transport, savings]
+        }]
+      };
+
+      const config = {
+        type: "pie",
+        data: data
+      };
+
+      if (chart) chart.destroy();
+
+      chart = new Chart(
+        document.getElementById("budgetChart"),
+        config
+      );
+    }
+  </script>
+
+</body>
+</html>
