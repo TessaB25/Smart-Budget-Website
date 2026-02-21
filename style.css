@@ -9,3 +9,40 @@ body {
 h1 {
   color: white;
 }
+
+/* Fun Buttons */
+
+.start-btn,
+.budget-btn {
+  margin-top: 15px;
+  padding: 14px 28px;
+  font-size: 18px;
+  font-weight: bold;
+
+  border: none;
+  border-radius: 25px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/* Start Button */
+.start-btn {
+  background: linear-gradient(45deg, #00c6ff, #0072ff);
+  color: white;
+}
+
+/* Budget Button */
+.budget-btn {
+  background: linear-gradient(45deg, #00ff9d, #00b36b);
+  color: #003322;
+}
+
+/* Hover Effects */
+.start-btn:hover,
+.budget-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.4);
+}
