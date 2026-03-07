@@ -106,18 +106,61 @@ let chart;
 
 function updateChart(){
 
-const income = Number(document.getElementById("income").value);
-const rent = Number(document.getElementById("rent").value);
-const food = Number(document.getElementById("food").value);
-const transport = Number(document.getElementById("transport").value);
+const income = Number(document.getElementById("income").value) || 0;
 
-const expenses = rent + food + transport;
-const savings = income - expenses;
+const tithe = Number(document.getElementById("tithe").value) || 0;
+const charity = Number(document.getElementById("charity").value) || 0;
+const savingsInput = Number(document.getElementById("savingsInput").value) || 0;
+const rent = Number(document.getElementById("rent").value) || 0;
+const water = Number(document.getElementById("water").value) || 0;
+const gas = Number(document.getElementById("gas").value) || 0;
+const sewer = Number(document.getElementById("sewer").value) || 0;
+const food = Number(document.getElementById("food").value) || 0;
+const transport = Number(document.getElementById("transport").value) || 0;
+
+/* Add ALL expenses */
+
+const totalExpenses =
+tithe +
+charity +
+savingsInput +
+rent +
+water +
+gas +
+sewer +
+food +
+transport;
+
+/* Calculate money left */
+
+const moneyLeft = income - totalExpenses;
 
 const data = {
-labels:["Rent","Food","Transport","Savings"],
+labels:[
+"Tithe",
+"Charity",
+"Savings",
+"Rent",
+"Water",
+"Gas",
+"Sewer",
+"Food",
+"Transport",
+"Money Left"
+],
 datasets:[{
-data:[rent,food,transport,savings]
+data:[
+tithe,
+charity,
+savingsInput,
+rent,
+water,
+gas,
+sewer,
+food,
+transport,
+moneyLeft
+]
 }]
 };
 
