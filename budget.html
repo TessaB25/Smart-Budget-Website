@@ -1,124 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Smart Budget Calculator</title>
+<meta charset="UTF-8">
+<title>Smart Budget Calculator</title>
 
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
-  <!-- Chart.js for graph -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <style>
-    .calculator-container {
-      max-width: 400px;
-      margin: 80px auto;
-      padding: 20px;
+<style>
 
-      background: rgba(255, 165, 0, 0.9);
+body{
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
 
-      border-radius: 12px;
-      text-align: center;
-    }
+.calculator-container{
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(255,165,0,0.9);
+  border-radius: 12px;
+}
 
-    input {
-      width: 90%;
-      padding: 10px;
-      margin: 8px 0;
-      border-radius: 6px;
-      border: none;
-    }
+input{
+  width: 90%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: none;
+}
 
-    button {
-      padding: 10px 20px;
-      margin-top: 10px;
+button{
+  padding: 10px 20px;
+  margin-top: 10px;
+  background: white;
+  color: orange;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-      background: white;
-      color: orange;
+button:hover{
+  background:#ffe0b2;
+}
 
-      border: none;
-      border-radius: 6px;
+/* Fix chart display */
+#budgetChart{
+  margin-top:20px;
+  max-width:100%;
+  height:300px;
+}
 
-      font-weight: bold;
-      cursor: pointer;
-    }
+.home-btn{
+  display:block;
+  margin-top:25px;
+  text-decoration:none;
+  font-weight:bold;
+}
 
-    button:hover {
-      background: #ffe0b2;
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <h1 style="text-align:center;">💰 Smart Budget Calculator</h1>
+<h1>💰 Smart Budget Calculator</h1>
 
-  <div class="calculator-container">
+<div class="calculator-container">
 
-    <input type="number" id="income" placeholder="Total Income">
-    
-     <input type="number" id="giving" placeholder="Tithes & Offering">
+<input type="number" id="income" placeholder="Total Income">
 
-     <input type="number" id="giving" placeholder="Charities">
+<input type="number" id="tithe" placeholder="Tithes & Offering">
 
-     <input type="number" id="savings" placeholder="Monthly Savings">
+<input type="number" id="charity" placeholder="Charities">
 
-    <input type="number" id="rent" placeholder="Rent / Mortgage">
+<input type="number" id="savingsInput" placeholder="Monthly Savings">
 
-     <input type="number" id="utilities" placeholder="Water">
+<input type="number" id="rent" placeholder="Rent / Mortgage">
 
-    <input type="number" id="utilities" placeholder="Gas">
+<input type="number" id="water" placeholder="Water">
 
-    <input type="number" id="utilities" placeholder="Sewer">
+<input type="number" id="gas" placeholder="Gas">
 
-    <input type="number" id="food" placeholder="Food">
+<input type="number" id="sewer" placeholder="Sewer">
 
-    <input type="number" id="transport" placeholder="Transportation">
+<input type="number" id="food" placeholder="Food">
 
-    <button onclick="updateChart()">Calculate</button>
+<input type="number" id="transport" placeholder="Transportation">
 
-    <canvas id="budgetChart"></canvas>
+<button onclick="updateChart()">Calculate</button>
 
-  </div>
+<canvas id="budgetChart"></canvas>
 
-  <script>
-    let chart;
+</div>
 
-    function updateChart() {
-      const income = Number(document.getElementById("income").value);
-      const rent = Number(document.getElementById("rent").value);
-      const food = Number(document.getElementById("food").value);
-      const transport = Number(document.getElementById("transport").value);
+<script>
 
-      const expenses = rent + food + transport;
-      const savings = income - expenses;
+let chart;
 
-      const data = {
-        labels: ["Rent", "Food", "Transport", "Savings"],
-        datasets: [{
-          data: [rent, food, transport, savings]
-        }]
-      };
+function updateChart(){
 
-      const config = {
-        type: "pie",
-        data: data
-      };
+const income = Number(document.getElementById("income").value);
+const rent = Number(document.getElementById("rent").value);
+const food = Number(document.getElementById("food").value);
+const transport = Number(document.getElementById("transport").value);
 
-      if (chart) chart.destroy();
+const expenses = rent + food + transport;
+const savings = income - expenses;
 
-      chart = new Chart(
-        document.getElementById("budgetChart"),
-        config
-      );
-    }
-  </script>
+const data = {
+labels:["Rent","Food","Transport","Savings"],
+datasets:[{
+data:[rent,food,transport,savings]
+}]
+};
 
-  <a href="index.html" style="display:block; text-align:center; margin-top:20px;">
-  ⬅ Back to Home
-</a>
+const config={
+type:"pie",
+data:data
+};
+
+if(chart) chart.destroy();
+
+chart = new Chart(
+document.getElementById("budgetChart"),
+config
+);
+
+}
+
+</script>
+
+<a href="index.html" class="home-btn">⬅ Back to Home</a>
 
 </body>
 </html>
-
-
