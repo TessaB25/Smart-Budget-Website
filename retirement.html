@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Retirement Calculator</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+font-family:Arial;
+text-align:center;
+}
+
+.container{
+max-width:400px;
+margin:80px auto;
+padding:20px;
+background:rgba(0,150,255,0.85);
+border-radius:12px;
+}
+
+input{
+width:90%;
+padding:10px;
+margin:8px 0;
+border-radius:6px;
+border:none;
+}
+
+button{
+padding:10px 20px;
+margin-top:10px;
+background:white;
+color:#0077cc;
+border:none;
+border-radius:6px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.result{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🏝 Retirement Calculator</h1>
+
+<div class="container">
+
+<input type="number" id="currentSavings" placeholder="Current Savings">
+
+<input type="number" id="monthlyContribution" placeholder="Monthly Contribution">
+
+<input type="number" id="interestRate" placeholder="Annual Interest Rate (%)">
+
+<input type="number" id="years" placeholder="Years Until Retirement">
+
+<button onclick="calculateRetirement()">Calculate</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+<script>
+
+function calculateRetirement(){
+
+let savings = Number(document.getElementById("currentSavings").value);
+let monthly = Number(document.getElementById("monthlyContribution").value);
+let rate = Number(document.getElementById("interestRate").value)/100/12;
+let months = Number(document.getElementById("years").value)*12;
+
+for(let i=0;i<months;i++){
+savings = savings * (1+rate) + monthly;
+}
+
+document.getElementById("result").innerHTML =
+"Estimated Retirement Savings: $" + savings.toFixed(2);
+
+}
+
+</script>
+
+<a href="index.html">⬅ Back to Home</a>
+
+</body>
+</html>
