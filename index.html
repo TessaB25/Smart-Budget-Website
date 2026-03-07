@@ -1,90 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Smart Budget</title>
+<meta charset="UTF-8">
+<title>Smart Budget</title>
 
-  <style>
-    /* Remove margins */
-    body {
-      margin: 0;
-      overflow: hidden;
-      font-family: Arial, sans-serif;
-    }
+<style>
 
-    /* Video background */
-    #bg-video {
-      position: fixed;
-      right: 0;
-      bottom: 0;
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
+body{
+  margin:0;
+  overflow:hidden;
+  font-family:Arial, sans-serif;
+}
 
-    /* Overlay content */
-    .content {
-      position: relative;
-      z-index: 1;
-      height: 100vh;
+/* Background video */
 
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+#bg-video{
+  position:fixed;
+  right:0;
+  bottom:0;
+  min-width:100%;
+  min-height:100%;
+  object-fit:cover;
+  z-index:-1;
+}
 
-      color: white;
-      text-align: center;
+/* Overlay content */
 
-      background: rgba(0, 0, 0, 0.4);
-    }
-  </style>
+.content{
+  position:relative;
+  z-index:1;
+  height:100vh;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  color:white;
+  text-align:center;
+
+  background:rgba(0,0,0,0.4);
+}
+
+button{
+  padding:12px 25px;
+  margin:10px;
+  font-size:16px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.budget-btn{
+  background:orange;
+  color:white;
+}
+
+.retire-btn{
+  background:#2ecc71;
+  color:white;
+}
+
+</style>
 </head>
+
 <body>
 
-  <!-- Background Video -->
- <video id="bg-video" autoplay muted loop>
-  <source src="cityvideo.mp4" type="video/mp4">
+<!-- Background Video -->
+<video id="bg-video" autoplay muted loop>
+<source src="cityvideo.mp4" type="video/mp4">
 </video>
 
+<!-- Audio Narration -->
+<audio id="narration" autoplay>
+<source src="welcome.mp3" type="audio/mpeg">
+</audio>
 
-  <!-- Audio Narration -->
-  <audio id="narration" autoplay>
-    <source src="welcome.mp3" type="audio/mpeg">
-  </audio>
-
-  <!-- Page Content -->
-  <!-- Page Content -->
+<!-- Page Content -->
 <div class="content">
-  <h1>Welcome to Smart Budget!</h1>
-  <p>Let's journey together.</p>
 
-  <br>
+<h1>Welcome to Smart Budget!</h1>
+<p>Let's journey together.</p>
 
-  <button class="budget-btn" onclick="location.href='budget.html'">
-    💰 Start Budgeting!
-  </button>
-</div>
-
-  <script>
-    function playMedia() {
-      document.getElementById("bg-video").play();
-      document.getElementById("narration").play();
-    }
-  </script>
-
-  <button onclick="location.href='budget.html'">
-  Start Budgeting
+<button class="budget-btn" onclick="location.href='budget.html'">
+💰 Start Budgeting
 </button>
 
-  <a href="budget.html">Open Budget Calculator</a>
+<button class="retire-btn" onclick="location.href='retirement.html'">
+🏝 Retirement Calculator
+</button>
 
-<a href="retirement.html">Open Retirement Calculator</a>
+</div>
 
 </body>
 </html>
-
 
 
 
